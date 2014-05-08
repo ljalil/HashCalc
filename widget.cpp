@@ -29,6 +29,7 @@ void Widget::clearAllResults()
 
 void Widget::on_openFileDialog_ToolButton_clicked()
 {
+    //assign the name of the file that user select to the variable fileName(QString)
     fileName = QFileDialog::getOpenFileName(this,"Choose a local file",QDir::homePath());
     if(!fileName.isEmpty())
         ui->fileName_LineEdit->setText(fileName);
@@ -83,12 +84,26 @@ void Widget::on_Sha512_pushButton_clicked()
 //**********************-> slot for calculate buttons [start] <-**********************
 void Widget::on_calculate_pushButton_clicked()
 {
-    clearAllResults();
-    if(ui->fileName_LineEdit->text().isEmpty())
-        QMessageBox::warning(this,"Error","There is no input file, please select one then continue");
+    clearAllResults(); //clear all the results from previous operation
 
+    //check if the
+    if(fileName.isEmpty())
+    {
+        QMessageBox::warning(this,"Error","There is no input file, please select one then continue");
+        return;
+    }
+
+    //set the file name with the path given from user
     inputFile.setFileName(fileName);
-    inputFile.open(QIODevice::ReadOnly);
+
+    //check if the file is accessible, show error and exit if not, continue if yes
+    if(!inputFile.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::warning(this,"Error","Sorry, cannot open the file, please check if it's still exists then try again");
+        return;
+    }
+
+    //this section will executed if the file is accessible and everytthing is okay
     if(ui->Md4_checkBox->isChecked())
     {
         QCryptographicHash hash(QCryptographicHash::Md4);
@@ -166,7 +181,9 @@ void Widget::on_textToHash_plainTextEdit_textChanged()
 void Widget::on_textCalculate_pushButton_clicked()
 {
     if(ui->textToHash_plainTextEdit->toPlainText().isEmpty())
+    {
         QMessageBox::warning(this,"Error","There is no text to process");
+    }
 
     else if(ui->Md4_radioButton->isChecked())
     {
@@ -230,7 +247,6 @@ void Widget::on_textCalculate_pushButton_clicked()
         hash.addData(ui->textToHash_plainTextEdit->toPlainText().toUtf8());
         ui->textHash_plainTextEdit->insertPlainText(hash.result().toHex());
     }
-
 
 }
 
