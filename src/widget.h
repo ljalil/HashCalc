@@ -1,10 +1,28 @@
+/*****************************************************************************************
+*                                                                                        *
+*                                                                                        *
+*         ██╗  ██╗ █████╗ ███████╗██╗  ██╗ ██████╗ █████╗ ██╗      ██████╗               *
+*         ██║  ██║██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔════╝               *
+*         ███████║███████║███████╗███████║██║     ███████║██║     ██║                    *
+*         ██╔══██║██╔══██║╚════██║██╔══██║██║     ██╔══██║██║     ██║                    *
+*         ██║  ██║██║  ██║███████║██║  ██║╚██████╗██║  ██║███████╗╚██████╗               *
+*         ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝               *
+*                                                                                        *
+* Project : HashCalc                                                                     *
+* Purpose : Calculate hashes for files and texte with different algorithms               *
+* Author  : Abdeljalil Letrache                                                          *
+* License : LGPL v3.0                                                                    *
+* Version : 0.2                                                                          *
+*                                                                                        *
+*****************************************************************************************/
+
 #ifndef WIDGET_H
 #define WIDGET_H
 
 #include <QWidget>
-#include <QtCore/QFile>
-#include <QtCore/QCryptographicHash>
-namespace Ui {
+#include <QFile>
+namespace Ui
+{
 class Widget;
 }
 
@@ -42,10 +60,24 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_Md4_radioButton_toggled(bool checked);
+
+    void on_Md5_radioButton_toggled(bool checked);
+
+    void on_Sha1_radioButton_toggled(bool checked);
+
+    void on_Sha224_radioButton_toggled(bool checked);
+
+    void on_Sha256_radioButton_toggled(bool checked);
+
+    void on_Sha384_radioButton_toggled(bool checked);
+
+    void on_Sha512_radioButton_toggled(bool checked);
+
 private:
     void clearAllResults();
     Ui::Widget *ui;
-    const quint32 chunckSize; //size to be read from file at once ~ 4 Mo
+    const quint32 chunckSize;
     QString fileName;
     QString textToHash;
     QFile inputFile;
