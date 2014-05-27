@@ -541,8 +541,6 @@ moc_widget.cpp: /opt/Qt5.2.1/5.2.1/gcc_64/include/QtWidgets/QWidget \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/QFile \
-		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/QCryptographicHash \
-		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/qcryptographichash.h \
 		widget.h
 	/opt/Qt5.2.1/5.2.1/gcc_64/bin/moc $(DEFINES) $(INCPATH) widget.h -o moc_widget.cpp
 
@@ -674,8 +672,6 @@ main.o: main.cpp widget.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/QFile \
-		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/QCryptographicHash \
-		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/qcryptographichash.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt5.2.1/5.2.1/gcc_64/include/QtCore/qcoreapplication.h \
