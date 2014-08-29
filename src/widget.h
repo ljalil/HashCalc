@@ -21,6 +21,7 @@
 
 #include <QWidget>
 #include <QFile>
+#include "qhashcalc.h"
 namespace Ui
 {
 class Widget;
@@ -77,10 +78,7 @@ private slots:
 private:
     void clearAllResults();
     Ui::Widget *ui;
-    const quint32 chunckSize;
-    QString fileName;
-    QString textToHash;
-    QFile inputFile;
+    QHashCalc *hashCalcer;
 
 };
 

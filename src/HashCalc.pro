@@ -24,8 +24,10 @@ TARGET = HashCalc
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    qhashcalc.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    qhashcalc.h
 
 FORMS    += widget.ui
