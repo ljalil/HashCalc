@@ -31,3 +31,6 @@ HEADERS  += widget.h \
     qhashcalc.h
 
 FORMS    += widget.ui
+
+OTHER_FILES += \
+    CHANGELOG

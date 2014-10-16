@@ -1,26 +1,7 @@
-/*****************************************************************************************
-*                                                                                        *
-*                                                                                        *
-*         ██╗  ██╗ █████╗ ███████╗██╗  ██╗ ██████╗ █████╗ ██╗      ██████╗               *
-*         ██║  ██║██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔════╝               *
-*         ███████║███████║███████╗███████║██║     ███████║██║     ██║                    *
-*         ██╔══██║██╔══██║╚════██║██╔══██║██║     ██╔══██║██║     ██║                    *
-*         ██║  ██║██║  ██║███████║██║  ██║╚██████╗██║  ██║███████╗╚██████╗               *
-*         ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝               *
-*                                                                                        *
-* Project : HashCalc                                                                     *
-* Purpose : Calculate hashes for files and texte with different algorithms               *
-* Author  : Abdeljalil Letrache                                                          *
-* License : LGPL v3.0                                                                    *
-* Version : 0.2                                                                          *
-*                                                                                        *
-*****************************************************************************************/
-
-
 #include <QCryptographicHash>
 #include <QDir>
-#include <QMessageBox>
-#include <QFileDialog>
+#include <QMessageBox> //QMessageBox::warning()
+#include <QFileDialog> //QFileDialog::getOpenFileName()
 #include "widget.h"
 #include "ui_widget.h"
 
@@ -28,6 +9,7 @@ Widget::Widget(QWidget *parent) :QWidget(parent),
                                 ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    setAcceptDrops(true);
     hashCalcer = new QHashCalc;
 }
 
@@ -48,6 +30,18 @@ void Widget::clearAllResults()
     ui->Sha256_lineEdit->clear();
     ui->Sha384_lineEdit->clear();
     ui->Sha512_lineEdit->clear();
+}
+
+void Widget::dragEnterEvent(QDragEnterEvent *event)
+{
+    event->acceptProposedAction();
+}
+
+void Widget::dropEvent(QDropEvent *event)
+{
+    QList<QUrl> Urls = event->mimeData()->urls();
+    this->hashCalcer->setFileName(Urls.first().toLocalFile());
+    this->ui->fileName_LineEdit->setText(Urls.first().toLocalFile());
 }
 
 void Widget::on_openFileDialog_ToolButton_clicked()
@@ -147,25 +141,25 @@ void Widget::on_calculate_pushButton_clicked()
 
 
     if(ui->Md4_checkBox->isChecked())
-        ui->Md4_lineEdit->setText(hashCalcer->calcMD4ForFile());
+        ui->Md4_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Md4));
 
     if(ui->Md5_checkBox->isChecked())
-        ui->Md5_lineEdit->setText(hashCalcer->calcMD5ForFile());
+        ui->Md5_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Md5));
 
     if(ui->Sha1_checkBox->isChecked())
-        ui->Sha1_lineEdit->setText(hashCalcer->calcSHA1ForFile());
+        ui->Sha1_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Sha1));
 
     if(ui->Sha224_checkBox->isChecked())
-        ui->Sha224_lineEdit->setText(hashCalcer->calcSHA224ForFile());
+        ui->Sha224_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Sha224));
 
     if(ui->Sha256_checkBox->isChecked())
-        ui->Sha256_lineEdit->setText(hashCalcer->calcSHA256ForFile());
+        ui->Sha256_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Sha256));
 
     if(ui->Sha384_checkBox->isChecked())
-        ui->Sha384_lineEdit->setText(hashCalcer->calcSHA384ForFile());
+        ui->Sha384_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Sha384));
 
     if(ui->Sha512_checkBox->isChecked())
-        ui->Sha512_lineEdit->setText(hashCalcer->calcSHA512ForFile());
+        ui->Sha512_lineEdit->setText(hashCalcer->CalcHashForFile(QCryptographicHash::Sha512));
 
 }
 
@@ -188,7 +182,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcMD4ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Md4));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -196,7 +190,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcMD5ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Md5));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -204,7 +198,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcSHA1ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Sha1));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -212,7 +206,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcSHA224ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Sha1));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -220,7 +214,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcSHA256ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Sha224));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -228,7 +222,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcSHA384ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Sha384));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -236,7 +230,7 @@ void Widget::on_textCalculate_pushButton_clicked()
     {
         QByteArray text = ui->textToHash_plainTextEdit->toPlainText().toUtf8();
         ui->textHash_plainTextEdit->clear();
-        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->calcSHA512ForText(text));
+        ui->textHash_plainTextEdit->insertPlainText(hashCalcer->CalcHashForText(text,QCryptographicHash::Sha512));
         ui->textHash_groupBox->setTitle("The result:");
     }
 
@@ -251,34 +245,41 @@ void Widget::on_pushButton_clicked()
 void Widget::on_Md4_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Md5_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha1_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha224_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha256_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha384_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha512_radioButton_toggled(bool checked)
 {
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
+    ui->textHash_plainTextEdit->clear();
 }

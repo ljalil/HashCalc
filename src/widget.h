@@ -1,26 +1,8 @@
-/*****************************************************************************************
-*                                                                                        *
-*                                                                                        *
-*         ██╗  ██╗ █████╗ ███████╗██╗  ██╗ ██████╗ █████╗ ██╗      ██████╗               *
-*         ██║  ██║██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔════╝               *
-*         ███████║███████║███████╗███████║██║     ███████║██║     ██║                    *
-*         ██╔══██║██╔══██║╚════██║██╔══██║██║     ██╔══██║██║     ██║                    *
-*         ██║  ██║██║  ██║███████║██║  ██║╚██████╗██║  ██║███████╗╚██████╗               *
-*         ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝               *
-*                                                                                        *
-* Project : HashCalc                                                                     *
-* Purpose : Calculate hashes for files and texte with different algorithms               *
-* Author  : Abdeljalil Letrache                                                          *
-* License : LGPL v3.0                                                                    *
-* Version : 0.2                                                                          *
-*                                                                                        *
-*****************************************************************************************/
-
 #ifndef WIDGET_H
 #define WIDGET_H
 
 #include <QWidget>
-#include <QFile>
+#include <QtCore>
 #include "qhashcalc.h"
 namespace Ui
 {
@@ -80,6 +62,9 @@ private:
     Ui::Widget *ui;
     QHashCalc *hashCalcer;
 
+protected:
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dropEvent(QDropEvent* event);
 };
 
 #endif // WIDGET_H

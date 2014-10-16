@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>744</width>
-    <height>492</height>
+    <height>433</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -35,7 +35,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -47,7 +47,7 @@
          <item>
           <widget class="QGroupBox" name="chooseFile_groupBox">
            <property name="title">
-            <string>Choose a file</string>
+            <string>Choose a file or just drag/drop it here</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
@@ -62,6 +62,9 @@
               <item row="0" column="1">
                <widget class="QLineEdit" name="fileName_LineEdit">
                 <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="acceptDrops">
                  <bool>false</bool>
                 </property>
                 <property name="placeholderText">
@@ -83,6 +86,12 @@
          </item>
          <item>
           <widget class="QGroupBox" name="chooseAlgorithm_groupBox">
+           <property name="sizeIncrement">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="title">
             <string>Choose an algorithm</string>
            </property>
@@ -111,7 +120,11 @@
                </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QLineEdit" name="Sha224_lineEdit"/>
+               <widget class="QLineEdit" name="Sha224_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="0" column="2">
                <widget class="QPushButton" name="Md4_pushButton">
@@ -142,13 +155,25 @@
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLineEdit" name="Sha1_lineEdit"/>
+               <widget class="QLineEdit" name="Sha1_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="4" column="1">
-               <widget class="QLineEdit" name="Sha256_lineEdit"/>
+               <widget class="QLineEdit" name="Sha256_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="5" column="1">
-               <widget class="QLineEdit" name="Sha384_lineEdit"/>
+               <widget class="QLineEdit" name="Sha384_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="6" column="0">
                <widget class="QCheckBox" name="Sha512_checkBox">
@@ -165,7 +190,11 @@
                </widget>
               </item>
               <item row="6" column="1">
-               <widget class="QLineEdit" name="Sha512_lineEdit"/>
+               <widget class="QLineEdit" name="Sha512_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="0" column="0">
                <widget class="QCheckBox" name="Md4_checkBox">
@@ -182,7 +211,11 @@
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QLineEdit" name="Md5_lineEdit"/>
+               <widget class="QLineEdit" name="Md5_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item row="1" column="2">
                <widget class="QPushButton" name="Md5_pushButton">
@@ -209,62 +242,9 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="Md4_lineEdit"/>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="groupBox_2">
-           <property name="title">
-            <string>Operation progress</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_8">
-            <item row="0" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QProgressBar" name="progressBar">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="value">
-                 <number>0</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>153</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="lineWidth">
-                 <number>1</number>
-                </property>
-                <property name="midLineWidth">
-                 <number>0</number>
-                </property>
-                <property name="text">
-                 <string>Not acting</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+               <widget class="QLineEdit" name="Md4_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -487,7 +467,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Notes: &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1- Hash cracking needs a working internet connection to search thought an online hashes database.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2- Database search is much more efficient than brute force cracking, but there is no &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;WARRANTY&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; that your hash will be cracked.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2- Database search is much more efficient than brute force cracking, but there is no WARRANTY that your hash will be cracked.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3- For now, Hash cracking supports only MD5 hashes.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
@@ -601,6 +581,13 @@ p, li { white-space: pre-wrap; }
             </size>
            </property>
           </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Powered by &lt;a href=&quot;www.md5crack.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;md5crack.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

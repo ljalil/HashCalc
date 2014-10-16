@@ -1,20 +1,32 @@
 #include "qhashcalc.h"
 
 
-
-QHashCalc::QHashCalc():chunckSize(1024*1024*4)
+QHashCalc::QHashCalc():CHUNK_SIZE(1024*1024*4),
+    API_KEY("134c7045e839655a8b032f94")
 {
 
 }
 
-QHashCalc::QHashCalc(QString fileName):chunckSize(1024*1024*4)
+QHashCalc::QHashCalc(QString fileName):CHUNK_SIZE(1024*1024*4),
+    API_KEY("134c7045e839655a8b032f94")
 {
     this->fileName = fileName;
 }
 
+QHashCalc::~QHashCalc()
+{
+    delete this->Hash; //preventing memory leaks
+}
+
 void QHashCalc::setFileName(const QString &value)
 {
-    fileName = value;
+    this->fileName = value;
+}
+
+
+QString QHashCalc::getFileName() const
+{
+    return fileName;
 }
 
 bool QHashCalc::isOpenbale()
@@ -30,153 +42,82 @@ bool QHashCalc::isOpenbale()
     }
 }
 
-
-
-QString QHashCalc::getFileName() const
+QString QHashCalc::CalcHashForFile(QCryptographicHash::Algorithm Algorithm)
 {
-    return fileName;
-}
-
-
-
-QString QHashCalc::calcMD4ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Md4);
     QFile inputFile(this->fileName);
     inputFile.open(QIODevice::ReadOnly);
+
+    //using "switch" statement to compare the "Algorithm" parameter with integers from QCryptographicHash
+    //to assign the choosen algorithm to "Hash"
+
+    switch (Algorithm)
+    {
+    case QCryptographicHash::Md4:
+         Hash = new QCryptographicHash(QCryptographicHash::Md4);
+        break;
+    case QCryptographicHash::Md5:
+        Hash = new QCryptographicHash(QCryptographicHash::Md5);
+        break;
+    case QCryptographicHash::Sha1:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha1);
+        break;
+    case QCryptographicHash::Sha224:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha224);
+        break;
+    case QCryptographicHash::Sha256:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha256);
+        break;
+    case QCryptographicHash::Sha384:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha384);
+        break;
+    case QCryptographicHash::Sha512:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha512);
+        break;
+    }
+
     while(!inputFile.atEnd())
     {
-        hash.addData(inputFile.read(chunckSize));
+        Hash->addData(inputFile.read(CHUNK_SIZE));
     }
     inputFile.close();
-    return QString(hash.result().toHex());
+    QString Result = QString(Hash->result().toHex());
+    Hash->reset();
+    return Result;
 }
 
-QString QHashCalc::calcMD5ForFile()
+QString QHashCalc::CalcHashForText(const QByteArray &textToHash,QCryptographicHash::Algorithm Algorithm)
 {
-    QCryptographicHash hash(QCryptographicHash::Md5);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
+    switch (Algorithm)
     {
-        hash.addData(inputFile.read(chunckSize));
+    case QCryptographicHash::Md4:
+         Hash = new QCryptographicHash(QCryptographicHash::Md4);
+        break;
+    case QCryptographicHash::Md5:
+        Hash = new QCryptographicHash(QCryptographicHash::Md5);
+        break;
+    case QCryptographicHash::Sha1:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha1);
+        break;
+    case QCryptographicHash::Sha224:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha224);
+        break;
+    case QCryptographicHash::Sha256:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha256);
+        break;
+    case QCryptographicHash::Sha384:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha384);
+        break;
+    case QCryptographicHash::Sha512:
+        Hash = new QCryptographicHash(QCryptographicHash::Sha512);
+        break;
     }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
 
-QString QHashCalc::calcSHA1ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Sha1);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
-    {
-        hash.addData(inputFile.read(chunckSize));
-    }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
+    Hash->addData(textToHash);
+    QString Result = QString(Hash->result().toHex());
 
-QString QHashCalc::calcSHA224ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Sha224);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
-    {
-        hash.addData(inputFile.read(chunckSize));
-    }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
+    //Using a variable to store the result HEX value, because reseting
+    //"Hash" to the initial state before doing other calculations, must be done before returning
 
-QString QHashCalc::calcSHA256ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Sha256);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
-    {
-        hash.addData(inputFile.read(chunckSize));
-    }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
-
-
-QString QHashCalc::calcSHA384ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Sha384);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
-    {
-        hash.addData(inputFile.read(chunckSize));
-    }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
-
-
-QString QHashCalc::calcSHA512ForFile()
-{
-    QCryptographicHash hash(QCryptographicHash::Sha512);
-    QFile inputFile(this->fileName);
-    inputFile.open(QIODevice::ReadOnly);
-    while(!inputFile.atEnd())
-    {
-        hash.addData(inputFile.read(chunckSize));
-    }
-    inputFile.close();
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcMD4ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Md4);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcMD5ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Md5);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcSHA1ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Sha1);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcSHA224ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Sha224);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcSHA256ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Sha256);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcSHA384ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Sha384);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
-}
-
-QString QHashCalc::calcSHA512ForText(const QByteArray &textToHash)
-{
-    QCryptographicHash hash(QCryptographicHash::Sha512);
-    hash.addData(textToHash);
-    return QString(hash.result().toHex());
+    Hash->reset();
+    return Result;
 }

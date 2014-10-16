@@ -1,3 +1,21 @@
+/*****************************************************************************************
+*                                                                                        *
+*                                                                                        *
+*         ██╗  ██╗ █████╗ ███████╗██╗  ██╗ ██████╗ █████╗ ██╗      ██████╗               *
+*         ██║  ██║██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔════╝               *
+*         ███████║███████║███████╗███████║██║     ███████║██║     ██║                    *
+*         ██╔══██║██╔══██║╚════██║██╔══██║██║     ██╔══██║██║     ██║                    *
+*         ██║  ██║██║  ██║███████║██║  ██║╚██████╗██║  ██║███████╗╚██████╗               *
+*         ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝               *
+*                                                                                        *
+* Project : HashCalc                                                                     *
+* Purpose : Calculate hashes for files and texte with different algorithms               *
+* Author  : Abdeljalil Letrache                                                          *
+* License : LGPL v3.0                                                                    *
+* Version : 1.1                                                                          *
+*                                                                                        *
+*****************************************************************************************/
+
 #ifndef QHASHCALC_H
 #define QHASHCALC_H
 #include <QCryptographicHash>
@@ -9,30 +27,18 @@ class QHashCalc
 {
 private:
     QString fileName;
-    const quint32 chunckSize;
+    QCryptographicHash* Hash;
+    const quint32 CHUNK_SIZE;
+    const QString API_KEY;
 public:
     QHashCalc();
     QHashCalc(QString fileName);
+    ~QHashCalc();
     QString getFileName() const;
     void setFileName(const QString &value);
-
     bool isOpenbale();
-
-    QString calcMD4ForFile();
-    QString calcMD5ForFile();
-    QString calcSHA1ForFile();
-    QString calcSHA224ForFile();
-    QString calcSHA256ForFile();
-    QString calcSHA384ForFile();
-    QString calcSHA512ForFile();
-
-    QString calcMD4ForText(const QByteArray &textToHash);
-    QString calcMD5ForText(const QByteArray &textToHash);
-    QString calcSHA1ForText(const QByteArray &textToHash);
-    QString calcSHA224ForText(const QByteArray &textToHash);
-    QString calcSHA256ForText(const QByteArray &textToHash);
-    QString calcSHA384ForText(const QByteArray &textToHash);
-    QString calcSHA512ForText(const QByteArray &textToHash);
+    QString CalcHashForFile(QCryptographicHash::Algorithm Algorithm);
+    QString CalcHashForText(const QByteArray &textToHash,QCryptographicHash::Algorithm Algorithm);
 
 
 };
