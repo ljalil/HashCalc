@@ -1,6 +1,5 @@
 #include "qhashcalc.h"
 
-
 QHashCalc::QHashCalc():CHUNK_SIZE(1024*1024*4),
     API_KEY("134c7045e839655a8b032f94")
 {
