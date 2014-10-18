@@ -39,8 +39,6 @@ public:
     bool isOpenbale();
     QString CalcHashForFile(QCryptographicHash::Algorithm Algorithm);
     QString CalcHashForText(const QByteArray &textToHash,QCryptographicHash::Algorithm Algorithm);
-
-
 };
 
 #endif // QHASHCALC_H
