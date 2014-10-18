@@ -4,18 +4,20 @@
 #include <QFileDialog> //QFileDialog::getOpenFileName()
 #include "widget.h"
 #include "ui_widget.h"
-
+#include <QTest>
 Widget::Widget(QWidget *parent) :QWidget(parent),
                                 ui(new Ui::Widget)
 {
     ui->setupUi(this);
     setAcceptDrops(true);
     hashCalcer = new QHashCalc;
+
 }
 
 Widget::~Widget()
 {
     delete hashCalcer; // preventing memory leaks
+    delete hashCracker;
     delete ui;
 }
 
@@ -244,42 +246,61 @@ void Widget::on_pushButton_clicked()
 
 void Widget::on_Md4_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Md5_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha1_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha224_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha256_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha384_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
 }
 
 void Widget::on_Sha512_radioButton_toggled(bool checked)
 {
+    Q_UNUSED(checked);
     ui->textHash_groupBox->setTitle("Click \"Hash the text\" and see the result here");
     ui->textHash_plainTextEdit->clear();
+}
+
+void Widget::on_crack_pushButton_clicked()
+{
+    hashCracker = new QHashCracker(ui->md5crack_lineEdit->text());
+    hashCracker->downloadData();
+    qDebug("pause");
+    QTest::qSleep(3000);
+    qDebug("resume");
+
+    ui->md5cracked_lineEdit->setText(hashCracker->getReply());
+
 }
