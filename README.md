@@ -12,7 +12,7 @@ Technical info
 This software is written in C++ using Qt5 libraries
 
 
-Copyright
+License
 ========
 
 This software is released under LGPL v3.0 licsense
