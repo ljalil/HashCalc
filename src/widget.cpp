@@ -4,14 +4,13 @@
 #include <QFileDialog> //QFileDialog::getOpenFileName()
 #include "widget.h"
 #include "ui_widget.h"
-#include <QTest>
 Widget::Widget(QWidget *parent) :QWidget(parent),
                                 ui(new Ui::Widget)
 {
     ui->setupUi(this);
     setAcceptDrops(true);
     hashCalcer = new QHashCalc;
-
+    hashCracker = new QHashCracker;
 }
 
 Widget::~Widget()
@@ -295,12 +294,24 @@ void Widget::on_Sha512_radioButton_toggled(bool checked)
 
 void Widget::on_crack_pushButton_clicked()
 {
-    hashCracker = new QHashCracker(ui->md5crack_lineEdit->text());
+    hashCracker->setHash(ui->md5crack_lineEdit->text());
     hashCracker->downloadData();
-    qDebug("pause");
-    QTest::qSleep(3000);
-    qDebug("resume");
+    QObject::connect(hashCracker,SIGNAL(resultAvailable(QString)),
+                     this,SLOT(resultReturned(QString)));
 
-    ui->md5cracked_lineEdit->setText(hashCracker->getReply());
+}
 
+void Widget::resultReturned(QString result)
+{
+    if(result == QString::null)
+    {
+        ui->md5cracked_lineEdit->setStyleSheet("color: red;");
+        ui->md5cracked_lineEdit->setText("The MD5 hash could not be cracked");
+
+    }
+    else
+    {
+        ui->md5cracked_lineEdit->setStyleSheet("");
+        ui->md5cracked_lineEdit->setText(result);
+    }
 }

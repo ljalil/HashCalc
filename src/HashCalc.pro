@@ -16,7 +16,7 @@
 #                                                                                        *
 #****************************************************************************************/
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +25,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    qhashcalc.cpp
+    qhashcalc.cpp \
+    qhashcracker.cpp
 
 HEADERS  += widget.h \
-    qhashcalc.h
+    qhashcalc.h \
+    qhashcracker.h
 
 FORMS    += widget.ui
 
