@@ -1,4 +1,5 @@
-##->HashCalc files/text simple hash calculator<-
+HashCalc files/text simple hash calculator
+========
 
 Description
 ========
