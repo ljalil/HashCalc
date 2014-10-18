@@ -1,7 +1,4 @@
-Name
-========
-
-HashCalc files/text simple hash calculator
+##->HashCalc files/text simple hash calculator<-
 
 Description
 ========
@@ -19,7 +16,12 @@ Copyright
 
 This software is released under LGPL v3.0 licsense
 
-Cotnact me
+Changelog
 ========
-
-If you want to report a bug or suggest a new feature you can contact me at: abdeljalil73 [at] gmail [dot] com
+**Version 1.0:**
+  - Initial release
+**Version 1.1:**
+  - Seperating Gui and hash calculation
+  - Support for Drag/Drop
+**Version 1.2:**
+  - Support for MD5 hashes cracking (Network-based)
