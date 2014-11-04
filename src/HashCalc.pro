@@ -34,5 +34,6 @@ HEADERS  += widget.h \
 
 FORMS    += widget.ui
 
+RESOURCES += Resources.qrc
 OTHER_FILES += \
     CHANGELOG
