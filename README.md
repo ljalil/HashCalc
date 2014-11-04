@@ -21,10 +21,10 @@ Changelog
 ========
 **Version 1.0:**
   - Initial release
-  - 
+
 **Version 1.1:**
   - Seperating Gui and hash calculation
   - Support for Drag/Drop
-  - 
+
 **Version 1.2:**
   - Support for MD5 hashes cracking (Network-based)
