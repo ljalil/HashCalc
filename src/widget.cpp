@@ -315,3 +315,9 @@ void Widget::resultReturned(QString result)
         ui->md5cracked_lineEdit->setText(result);
     }
 }
+
+void Widget::on_pasteFromClipboard_Button_clicked()
+{
+    QClipboard *filePathText = qApp->clipboard();
+    ui->fileName_LineEdit->setText(filePathText->text());
+}

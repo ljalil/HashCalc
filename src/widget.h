@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtCore>
+#include <QClipboard>
 #include "qhashcalc.h"
 #include "qhashcracker.h"
 namespace Ui
@@ -41,6 +42,8 @@ private slots:
     void on_Sha512_radioButton_toggled(bool checked);
     void on_crack_pushButton_clicked();
     void resultReturned(QString result);
+
+    void on_pasteFromClipboard_Button_clicked();
 
 private:
     void clearAllResults();
