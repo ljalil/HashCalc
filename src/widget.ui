@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>744</width>
-    <height>433</height>
+    <height>531</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>HashCalc</string>
+   <string>HashCalc - checksum utility</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
    <item row="0" column="0">
@@ -86,7 +86,7 @@
                <widget class="QToolButton" name="openFileDialog_ToolButton">
                 <property name="minimumSize">
                  <size>
-                  <width>39</width>
+                  <width>40</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -135,10 +135,29 @@
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_4">
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="Sha224_checkBox">
+              <item row="0" column="2">
+               <widget class="QPushButton" name="Md4_pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>40</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Copy MD4 hash</string>
+                </property>
                 <property name="text">
-                 <string>SHA-224</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -158,6 +177,160 @@
                 </property>
                 <property name="toolTip">
                  <string>Copy SHA-512 hash</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="Md5_checkBox">
+                <property name="text">
+                 <string>MD5</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="Sha224_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="Sha1_pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>40</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Copy SHA-1 hash</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="Md4_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QCheckBox" name="Sha384_checkBox">
+                <property name="text">
+                 <string>SHA-384</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="Md5_pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>40</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Copy MD5 hash</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="Md5_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="Sha1_checkBox">
+                <property name="text">
+                 <string>SHA-1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="Md4_checkBox">
+                <property name="text">
+                 <string>MD4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="Sha512_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QCheckBox" name="Sha256_checkBox">
+                <property name="text">
+                 <string>SHA-256</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="Sha384_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QCheckBox" name="Sha512_checkBox">
+                <property name="text">
+                 <string>SHA-512</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="Sha256_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="Sha1_lineEdit">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QPushButton" name="Sha256_pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>40</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Copy SHA-256 hash</string>
                 </property>
                 <property name="text">
                  <string/>
@@ -188,36 +361,10 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QLineEdit" name="Sha224_lineEdit">
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="Md4_pushButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>Copy MD4 hash</string>
-                </property>
+              <item row="3" column="0">
+               <widget class="QCheckBox" name="Sha224_checkBox">
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources.qrc">
-                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
+                 <string>SHA-224</string>
                 </property>
                </widget>
               </item>
@@ -241,152 +388,117 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="2">
-               <widget class="QPushButton" name="Sha1_pushButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>Copy SHA-1 hash</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources.qrc">
-                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="2">
-               <widget class="QPushButton" name="Sha256_pushButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>Copy SHA-256 hash</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources.qrc">
-                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="Sha1_lineEdit">
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="Sha256_lineEdit">
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QLineEdit" name="Sha384_lineEdit">
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QCheckBox" name="Sha512_checkBox">
-                <property name="text">
-                 <string>SHA-512</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QCheckBox" name="Sha256_checkBox">
-                <property name="text">
-                 <string>SHA-256</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QLineEdit" name="Sha512_lineEdit">
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="compareFile_GroupBox">
+           <property name="title">
+            <string>Compare to second file</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="gridLayout_8">
               <item row="0" column="0">
-               <widget class="QCheckBox" name="Md4_checkBox">
-                <property name="text">
-                 <string>MD4</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="Sha1_checkBox">
-                <property name="text">
-                 <string>SHA-1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="Md5_lineEdit">
-                <property name="acceptDrops">
+               <widget class="QLabel" name="secondFile_Label">
+                <property name="enabled">
                  <bool>false</bool>
                 </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QPushButton" name="Md5_pushButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>Copy MD5 hash</string>
-                </property>
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="Resources.qrc">
-                  <normaloff>:/Icons/copy.png</normaloff>:/Icons/copy.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QCheckBox" name="Sha384_checkBox">
-                <property name="text">
-                 <string>SHA-384</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QCheckBox" name="Md5_checkBox">
-                <property name="text">
-                 <string>MD5</string>
-                </property>
-                <property name="checkable">
-                 <bool>true</bool>
+                 <string>Second file</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="Md4_lineEdit">
-                <property name="acceptDrops">
+               <widget class="QLineEdit" name="compareFileName_LineEdit">
+                <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="placeholderText">
+                 <string>Choose a second file to compare to the first one</string>
+                </property>
                </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="comparePasteFromClipboard_Button">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>from clipboard</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/clipboard.png</normaloff>:/Icons/clipboard.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QToolButton" name="chooseCompareFile_ToolBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>40</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>...</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="Resources.qrc">
+                  <normaloff>:/Icons/localFile.png</normaloff>:/Icons/localFile.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="compareFileResultLabel_Label">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Result:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="compareFileHashResult_LineEdit"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="compareFileResult_Label">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>No result!</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </item>
@@ -415,6 +527,9 @@
                <width>200</width>
                <height>0</height>
               </size>
+             </property>
+             <property name="toolTip">
+              <string/>
              </property>
              <property name="text">
               <string>Calculate checksum</string>
@@ -448,10 +563,10 @@
       <attribute name="title">
        <string>Text hash</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_11">
+      <layout class="QGridLayout" name="gridLayout_10">
        <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_10">
-         <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
           <widget class="QGroupBox" name="textToHash_groupBox">
            <property name="title">
             <string>Write your text here</string>
@@ -473,66 +588,96 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="0">
-          <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="6">
-            <widget class="QRadioButton" name="Sha512_radioButton">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Algorithm</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="hashTextAlgorithm_ComboBox">
+               <item>
+                <property name="text">
+                 <string>MD4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>MD5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>SHA-1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>SHA-224</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>SHA-256</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>SHA-384</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>SHA-512</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="textCalculate_pushButton">
+             <property name="minimumSize">
+              <size>
+               <width>152</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="text">
-              <string>SHA-512</string>
+              <string>Hash the text</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="QRadioButton" name="Sha224_radioButton">
-             <property name="text">
-              <string>SHA-224</string>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QRadioButton" name="Md4_radioButton">
-             <property name="text">
-              <string>MD4</string>
+             <property name="sizeType">
+              <enum>QSizePolicy::Expanding</enum>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="QRadioButton" name="Sha256_radioButton">
-             <property name="text">
-              <string>SHA-256</string>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="5">
-            <widget class="QRadioButton" name="Sha384_radioButton">
-             <property name="text">
-              <string>SHA-384</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QRadioButton" name="Sha1_radioButton">
-             <property name="text">
-              <string>SHA-1</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QRadioButton" name="Md5_radioButton">
-             <property name="text">
-              <string>MD5</string>
-             </property>
-            </widget>
+            </spacer>
            </item>
           </layout>
          </item>
-         <item row="2" column="0">
+         <item>
           <widget class="QGroupBox" name="textHash_groupBox">
            <property name="title">
             <string>Click &quot;Hash the text&quot; and see the result here</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <item>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="1" column="0">
              <widget class="QPlainTextEdit" name="textHash_plainTextEdit">
               <property name="minimumSize">
                <size>
@@ -548,52 +693,13 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="textCalculate_pushButton">
-             <property name="minimumSize">
-              <size>
-               <width>200</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Hash the text</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
         </layout>
        </item>
       </layout>
+      <zorder>hashTextAlgorithm_ComboBox</zorder>
+      <zorder>label_2</zorder>
+      <zorder>hashTextCopy_Button</zorder>
+      <zorder>hashTextCopy_Button</zorder>
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="icon">
