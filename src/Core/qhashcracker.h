@@ -7,7 +7,6 @@
 #include <QNetworkReply>
 #include <QUrl>
 #include <QDebug>
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
