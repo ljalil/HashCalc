@@ -25,12 +25,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    qhashcalc.cpp \
-    qhashcracker.cpp
+    Core/qhashcalc.cpp \
+    Core/qhashcracker.cpp
 
 HEADERS  += widget.h \
-    qhashcalc.h \
-    qhashcracker.h
+    Core/qhashcalc.h \
+    Core/qhashcracker.h
 
 FORMS    += widget.ui
 
