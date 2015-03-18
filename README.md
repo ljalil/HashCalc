@@ -15,7 +15,7 @@ This software is written in C++ using Qt5 libraries
 License
 ========
 
-This software is released under LGPL v3.0 licsense
+This software is released under GPL v3.0 licsense
 
 Changelog
 ========
