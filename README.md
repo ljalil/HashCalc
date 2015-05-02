@@ -4,6 +4,8 @@ HashCalc files/text simple hash calculator
 Description
 ========
 
+![Screenshot]("Screenshots/ScreenShot 01.png")
+
 HashCalc is free opensource utility that allow you to calculate checksums for files and text in many different hashing algorithms such as Md4, Md5, Sha-1, ...
 
 Technical info
