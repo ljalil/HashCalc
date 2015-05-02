@@ -1,26 +1,23 @@
-HashCalc files/text simple hash calculator
+HashCalc Checksum Utility
 ========
 
-Description
-========
+##Description
 
 ![Screenshot](https://raw.githubusercontent.com/Abdeljalil-l/HashCalc/master/Screenshots/ScreenShot%2001.png)
 
 HashCalc is free opensource utility that allow you to calculate checksums for files and text in many different hashing algorithms such as Md4, Md5, Sha-1, ...
 
-Technical info
-========
+##Technical info
 
 This software is written in C++ using Qt5 libraries
 
 
-License
-========
+##License
 
 This software is released under GPL v3.0 licsense
 
-Changelog
-========
+##Changelog
+
 **Version 1.0:**
   - Initial release
 
