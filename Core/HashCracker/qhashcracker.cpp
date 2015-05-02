@@ -35,8 +35,9 @@ void QHashCracker::replyFinished(QNetworkReply *reply)
        //qDebug() << reply->readAll();
        QJsonDocument replyDocument = QJsonDocument::fromJson(reply->readAll());
        QJsonObject DocumentObj = replyDocument.object();
-       QJsonValue ParsingValue = DocumentObj.value("parsed");
+       QJsonValue ParsingValue = DocumentObj.value("phrase");
        this->reply = ParsingValue.toString();
+       qDebug() << this->reply << endl;
        if(ParsingValue.isNull())
            this->reply = QString::null;
        emit resultAvailable(this->reply);
