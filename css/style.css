@@ -1,0 +1,105 @@
+/*body{
+	//background-color:  #363F48;
+	background-image: url("./body_icons.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+#content {
+	width : 70%;
+	margin-left: auto;
+    margin-right: auto;
+}
+*/
+h1{
+
+
+}
+
+h3{
+
+
+}
+
+.list-group {
+	width : 37%;
+}
+
+
+
+
+
+.terminal {
+    width: 700px;
+    margin: 30px auto 0px;
+        margin-top: 30px;
+        margin-right-value: auto;
+        margin-bottom: 0px;
+        margin-left-value: auto;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+.header {
+    height: 25px;
+    display: block;
+    background: -moz-linear-gradient(center top , #F7F7F7 0%, #CFCFCF 5%, #AAA 100%) repeat scroll 0% 0% transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9C9C9C #9C9C9C #111;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 25px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    color: #444;
+}
+
+
+.shell {
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 28px;
+    color: #EEEB82;
+    background-color: #3D3D3D;
+    overflow: hidden;
+    padding: 20px;
+    margin: 0px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    text-align: left;
+    display: block;
+}
+
+.tutorial-list .shell p {
+    margin: 0px;
+    font-weight: bold;
+}
+
+.path {
+    color: #71CFEE;
+    -moz-user-select: none;
+    padding-right: 0.6em;
+}
+
+.prompt {
+    color: #D74D52;
+    -moz-user-select: none;
+    padding-right: 0.6em;
+}
+
+em {
+    font-style: italic;
+}

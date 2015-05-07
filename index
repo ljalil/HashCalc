@@ -1,0 +1,118 @@
+<html>
+<head>
+	<title>HashCalc</title>
+	<meta content="">
+	<style></style>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="lightbox/js/jquery-1.11.0.min.js"></script>
+	<script src="lightbox/js/lightbox.min.js"></script>
+	<link href="lightbox/css/lightbox.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>HashCalc <small>Checksum Utility</small></h1>
+		</div>
+		<div class="alert alert-info" role="alert">Installable packages for Linux and other platforms will be available as soon as possible</div>
+		<div class="jumbotron">
+			<h1>HashCalc v1.2</h1>
+			<p>HashCalc is free/opensource utility that allows you to calculate checksums for files/text using many different hashing algorithms (such as MD4, MD5, Sha1...), Comparing files and cracking hashes...</p>
+
+			<a href="Archives/HashCalc.zip" download><button type="button" class="btn btn-success" aria-label="Left Align">
+				Download .zip archive
+				<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+			</button>
+		</a>
+
+		<a href="Archives/HashCalc.tar.gz" download>
+			<button type="button" class="btn btn-success" aria-label="Left Align">
+				Download .tar.gz archive
+				<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+			</button>
+
+		</a>
+
+<p><br /></p>
+	</div>
+
+<hr />
+	<h1>Screenshots</h1>
+
+	<a href="Screenshots/ScreenShot 01.png" data-lightbox="screenshots" data-title="Files hashe calculator and files comparation">
+		<img src="Screenshots/ScreenShot 01.png" class="img-thumbnail" alt="Main Window" width="304" height="236">
+	</a>
+
+
+	<a href="Screenshots/ScreenShot 02.png" data-lightbox="screenshots" data-title="Plain Text hashing">
+		<img src="Screenshots/ScreenShot 02.png" class="img-thumbnail" alt="Main Window" width="304" height="236">
+	</a>
+
+	<a href="Screenshots/ScreenShot 03.png" data-lightbox="screenshots" data-title="MD5 Hashes cracking">
+		<img src="Screenshots/ScreenShot 03.png" class="img-thumbnail" alt="Main Window" width="304" height="236">
+	</a>
+
+<hr />
+<h1>Build &amp; Run</h1>
+
+<p>Please make sure that you have all needed dependecies before trying to compile HashCalc from source!</p>
+
+<ul class="list-group">
+  <li class="list-group-item">Qt Framework >= 5.0</li>
+  <li class="list-group-item">GNU G++</li>
+</ul>
+<p>Then, in your terminal. execute the following commands, one by one:</p>
+<div class="terminal">
+        <div class="header"></div>
+        <div class="shell">
+          <p><span class="path">~</span><span class="prompt">$</span>git clone https://github.com/Abdeljalil-l/HashCalc</p>
+          <p><span class="path">~</span><span class="prompt">$</span>cd HashCalc</p>
+          <p><span class="path">~/HashCalc</span><span class="prompt">$</span>qmake</p>
+          <p><span class="path">~/HashCalc</span><span class="prompt">$</span>make</p>
+        </div>
+      </div>
+
+<hr />
+
+	<h1>Changelog</h1>
+	<ul class="list-group">
+		<li class="list-group-item active">Version 1.0</li>
+		<li class="list-group-item">Initial release</li>
+	</ul>
+
+	<ul class="list-group">
+		<li class="list-group-item active">Version 1.1</li>
+		<li class="list-group-item">Support for Drag/Drop <span class="label label-success">New</span></li>
+		<li class="list-group-item">Support for MD5 hashes cracking (Network-based) <span class="label label-success">New</span></li>
+		<li class="list-group-item">Separate GUI and backend functionalities <span class="label label-warning">Fixe</span></li>
+	</ul>
+
+	<ul class="list-group">
+		<li class="list-group-item active">Version 1.2</li>
+
+		<li class="list-group-item">Small updates for the GUI <span class="label label-primary">Update</span></li>
+		<li class="list-group-item">Fix showing wrong cracked hashe problem <span class="label label-warning">Fixe</span></li>
+	</ul>
+</div>
+<div class="well">
+<center>
+<!-- Place this tag where you want the button to render. -->
+<a aria-label="Star abdeljalil-l/HashCalc on GitHub" data-count-aria-label="# stargazers on GitHub" data-count-api="/repos/abdeljalil-l/HashCalc#stargazers_count" data-count-href="/abdeljalil-l/HashCalc/stargazers" data-style="mega" href="https://github.com/abdeljalil-l/HashCalc" class="github-button">Star</a>
+
+<a aria-label="Fork abdeljalil-l/HashCalc on GitHub" data-count-aria-label="# forks on GitHub" data-count-api="/repos/abdeljalil-l/HashCalc#forks_count" data-count-href="/abdeljalil-l/HashCalc/network" data-style="mega" href="https://github.com/abdeljalil-l/HashCalc/fork" class="github-button">Fork</a>
+
+<a aria-label="Follow @abdeljalil-l on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/abdeljalil-l#followers" data-count-href="/abdeljalil-l/followers" data-style="mega" href="https://github.com/abdeljalil-l" class="github-button">Follow @abdeljalil-l</a>
+
+
+
+
+<p>Source code is licened under <a href="http://www.gnu.org/licenses/gpl.html">GNU Public License</a></p>
+<p>You can find me on <a href="https://www.facebook.com/Abdeljalil.Letrache">Facebook</a></p>
+<p>To report bug or suggest a new feature, you can open an Issue on project's Github-Page</p>
+</center>
+</div>
+</div>
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
